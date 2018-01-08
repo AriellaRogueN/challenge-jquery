@@ -2,6 +2,7 @@ $(document).ready( function(){
  /*Eliminando icono flecha*/ 
 	$("#back").remove();
 
+	renderHighlightedRecipes(recipesArray);
 });
 
 $("#recetas").html(function printNews(){
@@ -10,7 +11,7 @@ $("#recetas").html(function printNews(){
 });
 
 //La variable "recipesArray" esta declarada en el archivo "data/recipes.js"
-renderHighlightedRecipes(recipesArray);
+
 
 /*
 * Función que se encarga de pintar TODAS las recetas que tengan 
@@ -32,7 +33,26 @@ function renderHighlightedRecipes(recipesArray) {
 * archivo "templates/templates-recipe.html"
 */
 function renderRecipe(recipe) {
-	console.log('Voy a pintar la receta: ', recipe);
+	;
+}
+
+function renderRecipe(recipe) {
+console.log('Voy a pintar la receta: ', recipe)
+	var titulo = recipe.title 
+	var autor = recipe.source.name
+	var url= recipe.name
+	
+	$("#list").append('<a class="item-recipe" href="#">' +
+		                  '<span class="attribution">' +
+		                  '<span class="title-recipe">' + titulo + '</span>' +
+		                  '<span class="metadata-recipe">' +
+		                  '<span class="author-recipe">' + autor + '</span>' +
+		                  '<span class="bookmarks-recipe">' +
+		                  '<span class="icon-bookmark">' +
+		                  '</span>' + '</span>' + '</span>' +  '</span>' +
+		                  '<img src= "img/recipes/320x350/' + url + '.jpg"/>' +
+		                  '</a>'
+	);
 }
 
 /*
