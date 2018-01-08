@@ -1,9 +1,15 @@
 $(document).ready( function(){
+ /*Eliminando icono flecha*/ 
+	$("#back").remove();
+
+	
+	 
+
 
 	//La variable "recipesArray" esta declarada en el archivo "data/recipes.js"
 	renderHighlightedRecipes(recipesArray);
 
-});
+
 
 
 /*
@@ -43,3 +49,4 @@ function renderActivity(recipe) {
 }
 
 
+});
