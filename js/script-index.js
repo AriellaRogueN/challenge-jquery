@@ -3,6 +3,8 @@ $(document).ready( function(){
 	$("#back").remove();
 
 	renderHighlightedRecipes(recipesArray);
+	renderActivities(activitiesArray);
+
 });
 
 $("#recetas").html(function printNews(){
@@ -32,12 +34,10 @@ function renderHighlightedRecipes(recipesArray) {
 * Aqui se tiene que crear el HTML que esta en el 
 * archivo "templates/templates-recipe.html"
 */
-function renderRecipe(recipe) {
-	;
-}
+
 
 function renderRecipe(recipe) {
-console.log('Voy a pintar la receta: ', recipe)
+console.log('Voy a pintar la receta: ', recipe)  /*utilizo variables*/
 	var titulo = recipe.title 
 	var autor = recipe.source.name
 	var url= recipe.name
@@ -51,8 +51,7 @@ console.log('Voy a pintar la receta: ', recipe)
 		                  '<span class="icon-bookmark">' +
 		                  '</span>' + '</span>' + '</span>' +  '</span>' +
 		                  '<img src= "img/recipes/320x350/' + url + '.jpg"/>' +
-		                  '</a>'
-	);
+		                  '</a>')
 }
 
 /*
@@ -60,6 +59,12 @@ console.log('Voy a pintar la receta: ', recipe)
 */
 function renderActivities(activitiesArray) {
 	console.log('Activities: ', activitiesArray);
+	for (var i = 0; i < activitiesArray.length; i++){
+		 renderActivity(activitiesArray [i])
+		 if(activitiesArray[i] > 0){
+			 $("#wrapper-msg").hide();
+        }  
+    }
 }
 
 /*
@@ -67,8 +72,27 @@ function renderActivities(activitiesArray) {
 * Aqui se tiene que crear el HTML que esta en el 
 * archivo "templates/templates-activity.html"
 */
+
+/*Otra forma*/
 function renderActivity(recipe) {
-	
+	console.log(recipe);
+	$("#activity-list").append("<a href='#' class='item-activity'>" +
+		                       "<span class='attribution'>" +
+		                       "<span class='avatar'>" +
+		                       "<img src='" + recipe.userAvatar + "'class='image-avatar'>" +
+		                       "</span>" +
+		                       "<span class='meta'>" +
+		                       "<span class='author'>" + recipe.userName +
+		                       "</span>made" +
+		                       "<span class='recipe'>" + recipe.recipeName +
+		                       "</span>: " + recipe.text +
+		                       "<span class='location'>&mdash;" + recipe.place +
+		                       "</span>" + "</span>" +"</span>" +
+		                       "<div class='bg-image' style='background-image: url(" + recipe.image + ");'>" +
+		                       "</div>" +
+		                       "</a >")
 }
+
+
 
 
